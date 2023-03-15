@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { IProduct } from "../modeles"
+import { HiShoppingCart } from "react-icons/hi";
 
 interface ProductProps {
     product: IProduct
@@ -7,23 +8,26 @@ interface ProductProps {
 
 export function Product(props: ProductProps) {
     const [details, setDetails] = useState(false)
-    const btnBgClassName = details ? 'bg-yellow-400' : 'bg-blue-400'
-    const btnClasses = ['py-2 px-4 border', btnBgClassName]
+    const buttonBgClassName = details ? 'button button--yellow' : 'button button--blue'
+    const buttonClasses = ['button', buttonBgClassName]
 
     return (
-        <div className="border py-2 px-4 rounded flex flex-col items-center mb-2"
+        <div className="product-item"
         >
-            <img src={props.product.image} className="w-1/6" alt="props.product.title" />
+            <img src={props.product.image} className="product-image" alt="props.product.title" />
             <p>{props.product.title}</p>
-            <span className="font-bold">{props.product.price}</span>
-            <button className={btnClasses.join(' ')}
+            <div className="product-price">
+            <span className="font-bold">{props.product.price} CAD</span>
+            <HiShoppingCart className="icon" />
+            </div>
+            <button className={buttonClasses.join(' ')}
                 onClick={() => setDetails(prev => !prev)}
             >
                 {details ? "Hide details" : "Show details"}
             </button>
             {details &&
                 <div>
-                    <p>{props.product.description}</p>
+                    <p className="product-description">{props.product.description}</p>
                     <p>Rate: <span style={{ fontWeight: 'bold' }}>{props.product.rating.rate}</span></p>
                 </div>}
         </div>
