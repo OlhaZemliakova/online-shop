@@ -1,30 +1,18 @@
-import { Loader } from './component/Loader';
-import { ErrorMessage } from './component/ErrorMessage';
-import { Product } from './component/Product';
-import { useProducts } from './hooks/products';
+import {Routes, Route} from 'react-router-dom'
+import { About } from "./pages/About";
+import ProductsPage from "./pages/ProductsPage";
 import { Header } from './component/Header';
-import { CategorySelect } from './component/CategorySelect';
-import Container from 'react-bootstrap/Container';
 
 function App() {
-  const { loading, error, products } = useProducts()
-
   return (
     <>
       <Header />
-      <main>
-        <aside>
-        <CategorySelect />
-        </aside>
-        <Container>
-          <div className='product-wrapper'>
-            {loading && <Loader />}
-            {error && <ErrorMessage error={error} />}
-            {products.map(product => <Product product={product} key={product.id} />)}
-          </div>
-          </Container>
-      </main>
+      <Routes>
+        <Route path="/" element={ <About/> }/>
+        <Route path="/products" element={ <ProductsPage/> } />
+      </Routes>
     </>
+    
   )
 }
 export default App;

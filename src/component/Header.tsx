@@ -1,5 +1,6 @@
 import { HiUser, HiShoppingCart } from "react-icons/hi";
 import Container from 'react-bootstrap/Container';
+import { Link } from "react-router-dom";
 
 export function Header() {
 
@@ -7,8 +8,8 @@ export function Header() {
         <header>
             <Container className="container">
                 <nav>
-                    <p>About shop</p>
-                    <p>Products</p>
+                    <Link className="me-5" to="/">About shop</Link>
+                    <Link to="/products">Products</Link>
                 </nav>
                 <div className="header-action">
                     <HiUser className="icon icon--user" />
