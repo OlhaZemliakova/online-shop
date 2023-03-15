@@ -1,0 +1,30 @@
+.icon {
+    color: green;
+    cursor: pointer;
+    transform: scale(2);
+
+    &--user {
+        margin-right: 30px;
+    }
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.button {
+    border: 0;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+
+    &--yellow {
+        background-color: rgb(245, 239, 57);
+        color: black;
+    }
+
+    &--blue {
+        background-color: rgb(18, 147, 234);
+    }
+}
