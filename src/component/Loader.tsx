@@ -1,10 +1,8 @@
-import React from "react"
+import Spinner from 'react-bootstrap/Spinner';
 
 export function Loader() {
 
     return (
-        <div>
-            <p className='text-center'>Loading data...</p>
-        </div>
+        <Spinner animation="border" variant="info" />
     )
 }
